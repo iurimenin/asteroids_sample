@@ -47,7 +47,7 @@ public class InputManagerV9 implements InputManagerCompat {
         private final WeakReference<InputManagerV9> mInputManager;
 
         PollingMessageHandler(InputManagerV9 im) {
-            mInputManager = new WeakReference<InputManagerV9>(im);
+            mInputManager = new WeakReference<>(im);
         }
 
         @Override
@@ -86,8 +86,8 @@ public class InputManagerV9 implements InputManagerCompat {
     }
 
     public InputManagerV9() {
-        mDevices = new SparseArray<long[]>();
-        mListeners = new HashMap<InputDeviceListener, Handler>();
+        mDevices = new SparseArray<>();
+        mListeners = new HashMap<>();
         mDefaultHandler = new PollingMessageHandler(this);
         // as a side-effect, populates our collection of watched
         // input devices
@@ -146,7 +146,7 @@ public class InputManagerV9 implements InputManagerCompat {
         private int mMessageType;
         private int mId;
         private InputDeviceListener mListener;
-        private static Queue<DeviceEvent> sEventQueue = new ArrayDeque<DeviceEvent>();
+        private static Queue<DeviceEvent> sEventQueue = new ArrayDeque<>();
 
         private DeviceEvent() {
         }
